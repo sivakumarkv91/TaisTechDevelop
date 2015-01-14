@@ -1,0 +1,231 @@
+<gsa-template>
+	<header>
+		<name>TaisTech Related Profile Additions</name>
+		<author>Sivam</author>
+	</header>
+
+	<!--/////////////////////////////// -->
+	<!-- user -->
+	<!--/////////////////////////////// -->
+
+	<item-descriptor name="user" cache-mode="simple"
+		item-cache-timeout="550000" query-expire-timeout="550000" xml-combine="append">
+
+		<property name="age" data-type="int" display-name-resource="age"
+			queryable="true" readable="true" category-resource="categoryBasics"
+			expert="false" cache-mode="inherit"
+			property-type="atg.repository.dp.TimeIntervalPropertyDescriptor">
+			<attribute name="datePropertyName1" value="dateOfBirth" />
+			<attribute name="timeStampInterval" value="year" />
+			<attribute name="propertySortPriority" value="55" />
+			<attribute name="resourceBundle"
+				value="tais.userprofiling.UserProfileTemplateResources" />
+		</property>
+
+		<table name="dps_user">
+			<property name="firstName" category-resource="categoryBasics"
+				required="true" />
+			<property name="lastName" category-resource="categoryBasics"
+				required="true" />
+			<property name="email" category-resource="categoryEmail"
+				required="true" />
+
+			<property name="autoLogin" default="true" />
+
+		</table>
+
+		<table name="tais_user" type="auxiliary" id-column-name="user_id">
+
+			<property name="employeeCode" category-resource="categoryBasics"
+				display-name-resource="employeeCode" column-name="employee_code"
+				data-type="string">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+
+			<property name="maritalStatus" data-type="enumerated"
+				category-resource="categoryBasics" display-name-resource="maritalStatus"
+				column-name="marital_status">
+				<attribute name="useCodeForValue" value="false" />
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<option value="Single" code="0" />
+				<option value="Married" code="1" />
+			</property>
+
+			<property name="personalPhone" category-resource="categoryBasics"
+				display-name-resource="personalPhone" column-name="personal_phone"
+				data-type="string">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+			<property name="homePhone" category-resource="categoryBasics"
+				display-name-resource="homePhone" column-name="home_phone"
+				data-type="string">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+			<property name="jobLocation" category-resource="categoryBasics"
+				data-type="enumerated" column-name="job_location"
+				display-name-resource="jobLocation">
+				<attribute name="useCodeForValue" value="false" />
+				<option value="Noida" code="0" />
+				<option value="Gurgon" code="1" />
+				<option value="Chennai" code="2" />
+				<option value="Banglore" code="3" />
+
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<attribute name="propertySortPriority" value="-2" />
+			</property>
+
+
+			<property name="designation" category-resource="categoryBasics"
+				data-type="enumerated" column-name="designation"
+				display-name-resource="designation">
+				<attribute name="useCodeForValue" value="false" />
+				<option value="Software Engineer" code="0" />
+				<option value="Senior Software Engineer" code="1" />
+				<option value="Technical Analyst" code="2" />
+				<option value="Technical Lead" code="3" />
+				<option value="Project Manager" code="4" />
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<attribute name="propertySortPriority" value="-2" />
+			</property>
+
+			<property name="profilePhotoUrl" category-resource="categoryBasics"
+				display-name-resource="profilePhoto" column-name="profile_photo_url"
+				data-type="string">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+			<property name="accountStatus" data-type="enumerated"
+				category-resource="categoryBasics" column-name="account_status"
+				display-name-resource="accountStatus">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<attribute name="useCodeForValue" value="false" />
+				<option code="0" value="active" />
+				<option code="1" value="deactivated" />
+				<option code="2" value="locked" />
+				<option code="3" value="pendingApproval" />
+			</property>
+
+			<!-- Food Expenditure specific properties -->
+			
+			<property category-resource="categoryFoodAllowance" name="isEligibleForFoodExpense"
+				data-type="boolean" default="false" column-name="iseligible_foodexpense"
+				display-name-resource="isEligibleForFoodExpense">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+			<property name="foodExpStartDate" category-resource="categoryFoodAllowance"
+				display-name-resource="foodExpStartDate" column-name="food_exp_start_date"
+				data-type="date">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+			<property name="foodExpStatus" data-type="enumerated"
+				category-resource="categoryFoodAllowance" column-name="expense_status"
+				display-name-resource="foodExpStatus">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<attribute name="useCodeForValue" value="false" />
+				<option code="0" value="settled" />
+				<option code="1" value="unsettled" />
+			</property>
+
+			<property name="foodExpenseAmount" data-type="double"
+				category-resource="categoryFoodAllowance" column-name="settled_expense_amount">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+			<property name="foodExpEndDate" category-resource="categoryFoodAllowance"
+				display-name-resource="foodExpEndDate" column-name="food_exp_end_date"
+				data-type="date">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+
+
+			<property category-resource="categoryAdmin" name="isAdmin"
+				data-type="boolean" default="false" column-name="is_admin"
+				display-name-resource="isAdmin">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+		</table>
+
+		<table name="tais_food_expense" type="multi" multi-column-name="sequence_id"
+			id-column-name="user_id">
+			<property name="foodExpense" category-resource="categoryFoodAllowance"
+				column-name="food_exp_item" display-name-resource="foodExpense"
+				data-type="list" queryable="true" cache-mode="disabled"
+				component-item-type="foodExpenditure">
+				<attribute name="propertySortyPriority" value="-10" />
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+			</property>
+		</table>
+
+	</item-descriptor>
+
+	<item-descriptor name="foodExpenditure">
+		<table name="tais_food_expenditure" type="primary"
+			id-column-name="id">
+			<property name="id" data-type="string" column-name="id" />
+			<property name="expenseDate" data-type="date" column-name="expense_date" />
+			<property name="amount" data-type="double" column-name="expense_amount" />
+			<property name="status" data-type="enumerated" column-name="expense_status"
+				display-name-resource="status">
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<attribute name="useCodeForValue" value="false" />
+				<option code="0" value="settled" />
+				<option code="1" value="unsettled" />
+			</property>
+			
+			<property name="expenseType" data-type="enumerated"	column-name="expense_type">
+				<attribute name="useCodeForValue" value="false" />
+				<attribute name="resourceBundle"
+					value="tais.userprofiling.UserProfileTemplateResources" />
+				<option code="0" value="Food Expenses" />
+				<option code="1" value="Maintenance Expenses" />
+				<option code="2" value="Special Allowances" />
+			</property>
+			
+			<property name="expenseProofUrl" column-name="expense_proof_url" data-type="string"/>
+			
+			<property name="descriptioin" data-type="string"
+				column-name="description" />
+		</table>
+	</item-descriptor>
+
+	<item-descriptor name="foodAllowanceSettlement">
+
+		<table name="tais_food_exp_settlement" type="primary" id-column-name="settlement_id">
+			<property name="settlement_id" data-type="string" column-name="settlement_id" />
+			<property name="user_id" data-type="string" column-name="user_id" />
+			<property name="foodAllowanceFunds" data-type="double" column-name="food_allowance_funds" />
+			<property name="settlementFrom" data-type="date" column-name="from_date" />
+			<property name="settlementUpto" data-type="date" column-name="to_date" />
+			<property name="lastSettlementDate" data-type="date" column-name="last_settlement_date" />
+			<property name="remarks" data-type="string" column-name="remarks" />
+		</table>
+
+		<table name="tais_food_exp_users" type="multi" multi-column-name="sequence_id" id-column-name="settlement_id">
+			<property name="availedUsers" column-name="food_exp_user_id"
+				data-type="list" queryable="true" cache-mode="disabled"
+				component-item-type="user" />
+		</table>
+
+	</item-descriptor>
+
+</gsa-template>

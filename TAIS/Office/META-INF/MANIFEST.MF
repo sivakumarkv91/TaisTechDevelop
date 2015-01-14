@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+ATG-Client-Class-Path: lib/classes.jar lib/simplecaptcha-1.2.1.jar
+ATG-Class-Path: lib/classes.jar lib/simplecaptcha-1.2.1.jar
+ATG-Config-Path: config/
+ATG-Required: DAS DPS DSS DPS.WebServices  DafEar DafEar.Admin
+ATG-J2EE: OfficeFront/j2ee-apps/taistech
+ATG-EAR-Module: OfficeFront/j2ee-apps/taistech

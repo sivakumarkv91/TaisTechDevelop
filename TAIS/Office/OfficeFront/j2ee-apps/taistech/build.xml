@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="{APP-NAME}" default="build.ear">
+
+<target name="build.war">
+
+ 	<war destfile="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps/taistech.war" update="true" webxml="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps/taistech/taistech.war/WEB-INF/web.xml">
+	<fileset dir="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps/taistech/taistech.war">
+		<include name="**/*"/>
+		<exclude name="WEB-INF/web.xml"/>
+	</fileset>
+	</war>
+	<!--<place-holder-for-war-task/>-->
+ </target>
+
+<target name="build.ear" depends="build.war">
+  <ear destfile="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps/taistech.ear" appxml="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps/taistech/META-INF/application.xml">
+    <metainf dir="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps/taistech/META-INF" includes="DYNAMO-INF/**/*"/>
+    <fileset dir="D:\ATG_Installed\ATG\ATG10.2\TAIS/j2ee-apps" includes="*.war,*.jar"/>
+  </ear>
+</target>
+</project>
+<!-- @version $Id: //product/Eclipse/version/10.2/plugins/atg.project/templates/build.xml#1 $$Change: 735822 $ -->

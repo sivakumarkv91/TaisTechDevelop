@@ -1,0 +1,20 @@
+<%-- JSTL --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%-- DSP --%>
+<%@ taglib prefix="dsp" uri="http://www.atg.com/taglibs/daf/dspjspTaglib1_1" %>
+
+<%-- JSON Rendering Taglib --%>
+<%@ taglib prefix="json" uri="http://www.atg.com/taglibs/json" %>
+
+<%-- Custom tag files --%>
+<%@ taglib prefix="tais" tagdir="/WEB-INF/tags/tais" %>
+
+<dsp:page>
+  <%@ include file="/includes/context.jspf" %>
+  
+  <%-- Set the default value for the xml="..." attribute on the dsp:page tags. --%>
+  <dsp:setxml value="true"/>
+</dsp:page>
